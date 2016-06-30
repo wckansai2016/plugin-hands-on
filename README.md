@@ -4,7 +4,7 @@
 WordCamp Kansai 2016 のプラグイン作成ハンズオンの資料です。
 
 ###![](images/title.png)講師
-[宮崎 さおり](https://profiles.wordpress.org/saorimiyazaki/) / [Toro_Unit](https://profiles.wordpress.org/toro_unit)　/　[大曲 仁](https://profiles.wordpress.org/jim912)　/　[Hinaloe](https://profiles.wordpress.org/hnle/)　/　[二神 暢彦](https://twitter.com/bobu_web)
+[宮崎 さおり](https://profiles.wordpress.org/saorimiyazaki/)　/　[Toro_Unit](https://profiles.wordpress.org/toro_unit)　/　[大曲 仁](https://profiles.wordpress.org/jim912)　/　[Hinaloe](https://profiles.wordpress.org/hnle/)　/　[二神 暢彦](https://profiles.wordpress.org/n2gami)
 
 ###![](images/title.png)このハンズオンの目的
 * 機能をプラグイン化することのメリットを知ってもらう。
