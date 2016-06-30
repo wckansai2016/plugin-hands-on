@@ -197,8 +197,8 @@ sprintf() の第一引数の %d と書いた部分に、第二引数で指定し
 add_shortcode( 'reading-minutes', 'reading_minutes_shortcode' );
 ```
 
-これで['reading-minutes']というショートコードが完成！！  
-実際に投稿記事へ['reading-minutes']と記述してみましょう:smile:  
+これで[reading-minutes]というショートコードが完成！！  
+実際に投稿記事へ[reading-minutes]と記述してみましょう:smile:  
   
 :wavy_dash::wavy_dash::wavy_dash::wavy_dash::wavy_dash::wavy_dash:  
  
