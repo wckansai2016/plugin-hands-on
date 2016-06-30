@@ -1,18 +1,39 @@
 #1. プラグイン化のメリット / プラグインの原型をつくる
 
-##プラグイン化することのメリット
+##プラグイン化のメリット
+###なぜプラグインにしておくとよいのか。functions.php に書いても同じようにうごくのに…？
 
-* テーマが変わっても機能がそのままつかえる。
-* functions.php にコードを蓄積していくとカオスになる → 機能ごとにプラグイン化すると管理が楽。
-* OG設定など毎回使うようなものをプラグイン化しておくと使い回ししやすく作業の効率化に。
+
+functions.php のコードはそのテーマ独自のもの。プラグインならテーマが変わっても機能がそのままつかえる。  
+:relaxed:**サイトリニューアルなどでテーマを変更した時に機能の移行作業しなくてもよい！**
+  
+functions.php にコードを蓄積していくとカオスになる。  
+:relaxed:**機能ごとにプラグイン化すると管理が楽！**
+ 
+OG設定などの毎回使うような機能をプラグイン化しておくと使い回ししやすい。  
+:relaxed:**作業の効率化に！**
 
 
 ##プラグインの原型をつくる
-WordPress にプラグインとして認識されるファイルをつくってみよう！
 
-plugin-hans-on-sample というフォルダを作りその中に plugin-hans-on-sample.php というファイルを作る。  
-plugin-hans-on-sample.php ファイルに以下を貼り付ける。  
-「Plugin Name」だけの記入でもOKです。  
+####プラグインを作るその前に…:hand:
+WordPressのデバックモードをオンにして、間違った記述をしていたらエラーメッセージをだすようにしておきましょう。
+
+####デバッグモードへの変更方法
+WordPress本体を置いている一番上のディレクトリにある wp-config.php というファイルをテキストエディタで開き、  
+84行目付近の define('WP_DEBUG', false); となっている箇所を、define('WP_DEBUG', true); に変更します。
+
+![デバッグモードへ変更](images/1.png)
+
+これで何故か真っ白になってしまったけど、どこがおかしいのかわからないということがなくなります。
+
+###WordPress にプラグインとして認識されるファイルをつくってみよう！
+
+デスクトップでもどこでもいいので、plugin-hans-on-sample というフォルダを作りその中に plugin-hans-on-sample.php というファイルを作ります。 
+
+![plugin-hans-on-sample.php というファイルを作る](images/2.png)
+ 
+次に plugin-hans-on-sample.php ファイルに以下のコードを貼り付けます。  
 
 ```
 <?php
@@ -34,14 +55,22 @@ plugin-hans-on-sample.php ファイルに以下を貼り付ける。
  * @package Plugin-hans-on-sample
  */
 ```
+プラグイン名や作者名はお好きなように変更して下さい。  
+「Plugin Name」だけの記入でもOKです。    
 
-plugin-hans-on-sample フォルダを WordPress の wp-content → plugins フォルダにおく。  
-   
-管理画面 > プラグイン の画面にプラグイン名やプラグイン概要などが反映される。  
-「有効化」ボタンをクリックすれば、プラグインとして機能するように。  
+そして plugin-hans-on-sample フォルダを WordPress の wp-content → plugins フォルダにおきます。  
   
-functions.php に書いていくように hans-on-sample.php ファイルへコードを書いていけば WordPress へ反映されます。   
+WordPress の管理画面 > プラグイン の画面を確認してみましょう！
+
+![プラグイン画面に反映された](images/3.png)
   
+プラグイン名やプラグイン概要などが反映されています！！  
+「有効化」ボタンをクリックすれば、晴れてプラグインとして機能するようになります:smile:  
+  
+functions.php に書いていくように hans-on-sample.php ファイルへコードを書いていけば WordPress へ機能が反映されます。   
+
+:wavy_dash::wavy_dash::wavy_dash::wavy_dash::wavy_dash::wavy_dash:
+    
 ブログなどでよくみかける「この記事は○分で読めます」という、本文の文字数によって何分くらいで読めるかのお知らせを表示するコードをこの plugin-hans-on-sample.php ファイルに書いてプラグインをつくってみましょう！
 
 [ Next >>：2.ショートコードを使って「この記事は○分で読めます」プラグインをつくる](https://github.com/wckansai2016/plugin-hands-on/blob/master/plugin_hands_on_2.md) 
