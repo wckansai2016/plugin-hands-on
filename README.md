@@ -1,30 +1,39 @@
-#初心者向けプラグイン作成ハンズオン
+#WordPress プラグイン作成のハンズオン
 ##「この記事は○分で読めます」プラグインをつくってみよう！
 
 WordCamp Kansai 2016 のプラグイン作成ハンズオンの資料です。
 
+###![](images/title.png)講師
+[Toro_Unit](https://torounit.com/)　/　[大曲 仁](http://www.warna.info/)　/　[Hinaloe](https://hinaloe.net/)　/　[二神 暢彦](https://twitter.com/bobu_web)　/　[宮崎 さおり](http://memocarilog.info/)
 
-###- 目的 -
-* プラグイン化することのメリットを知ってもらい、実際に簡単なプラグインを作ってプラグインの理解を深めてもらう。
+###![](images/title.png)このハンズオンの目的
+* 機能をプラグイン化することのメリットを知ってもらう。
+* 実際に簡単なプラグインを作ってプラグイン作成の工程を理解してもらう。
 * ショートコードの使い方や、投稿記事の情報取得・扱い方など機能を実装する上で必要なテクニックを学習してもらう。
 * フィルターフック・アクションフックを使って安全にカスタマイズする手法を知ってもらう。  
-	フィルターフック・アクションフックをコピペではなく、理解して使うことでプラグイン作成の幅も広がる。
+	:speech_balloon: フィルターフック・アクションフックをコピペではなく、理解して使うことでプラグイン作成の幅が広がります。
 
 
-###- 目次 -
+※このハンズオンでは PHP の変数や関数を使用してプラグインを作成していきますが、PHPの基礎的な記述方法などについては触れません。
+
+###![](images/title.png)目次
 
 1. [プラグイン化のメリット / プラグインの原型をつくる](https://github.com/wckansai2016/plugin-hands-on/blob/master/plugin_hands_on_1.md)
 +  [ショートコードを使って「この記事は○分で読めます」プラグインをつくる](https://github.com/wckansai2016/plugin-hands-on/blob/master/plugin_hands_on_2.md)
-    + ショートコードについての知識
-    + どのような処理が必要かを考える
-    + テキストが何分で読めるかを計算する関数を作る
-    + 「この記事は○分で読めます」を表示する関数をつくる 
-    +  ショートコード化する
+    + ショートコードについて知ろう
+    + 「この記事は○分で読めます」を表示するにはどのような処理が必要?？
+    + 計算した分数と定型文「この記事は○分で読めます」を合わせて表示する関数を作る
+    + ショートコード化する 
 + [フィルターフックを使って「この記事は約○分で読めます。」を自動で表示してみよう](https://github.com/wckansai2016/plugin-hands-on/blob/master/plugin_hands_on_3.md)
-    + フィルターフックについての知識
+    + フィルターフックとは
+    + フィルターフックの使い方
     + フィルターフックで自動的に表示する機能を追加する
 + [アクションフックを使って「この記事は約○分で読めます」にスタイルをあててみよう](https://github.com/wckansai2016/plugin-hands-on/blob/master/plugin_hands_on_4.md)
-    + アクションフックについての知識
+    + アクションフックとは
+    + アクションフックの使い方
     + 「この記事は約○分で読めます」にあてるスタイルシートをアクションフックで読み込む
 
+###![](images/title.png)今回作成するプラグインのサンプルコード
+最終的にこのコードが完成できるよう進めていきます。
 
+[wckansai2016/plugin-hands-on-sample](https://github.com/wckansai2016/plugin-hands-on-sample) :point_right: [plugin-hans-on-sample.php](https://github.com/wckansai2016/plugin-hands-on-sample/blob/master/plugin-hans-on-sample.php)
