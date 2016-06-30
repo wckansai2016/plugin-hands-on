@@ -52,7 +52,7 @@ add_shortcode( 'shortcode-sample', 'shortcode_sample_func' );
 任意の引数を渡すにはショートコードを記入する際に以下のように記入します。
 
 ```
-[shortcode-sample post_id="14"]
+[shortcode_sample example="value"]
 ```
 
 ショートコードに = で記入された値は、関数側の第一引数で連想配列で取得できます。
@@ -62,17 +62,18 @@ add_shortcode( 'shortcode-sample', 'shortcode_sample_func' );
 var_dump( $attr );
 ↓
 array(1) { 
- 	["post_id"]=> string(2) "14" 
+ 	["example"]=> string(5) "value" 
 }
 ```
 
 使い方の例として…、
-記事IDを post_id="14" と指定して渡し、  
-投稿した日にちを表示する関数の引数にして、指定した記事の投稿日を表示するようにできます。 
+
+日付のフォーマットを format="Y.m.d" と指定して渡し、  
+投稿した日にちを表示する関数 get_the_date() の引数に当てはめると、投稿日付のフォーマットを指定できるようになります。
 
 ```
 function shortcode_sample_func( $attr, $content = '' ) {
-	return '<p>'.get_the_date( '', $attr['post_id'] ).'</p>';
+	return '<p>'.get_the_date( $attr ).'</p>';
 }
 ```
 
