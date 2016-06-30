@@ -1,7 +1,10 @@
 #2. ショートコードを使って「この記事は○分で読めます」プラグインをつくる
 WordPress のショートコードという機能を使ってプラグインをつくります。
 
-##ショートコードとは
+
+##ショートコードについて知ろう
+
+###ショートコードとは
 
 投稿記事内で WordPress のテンプレートタグや PHP のコードを実行するための仕組みです。
 
@@ -11,9 +14,7 @@ WordPress のショートコードという機能を使ってプラグインを�
 例えば、shortcode-sample という名前のショートコードに、投稿した日にちを表示する関数 get_the_date() を登録したとします。  
 投稿記事に[shortcode-sample]と[]でショートコード名を囲って記入すると投稿した日にちをショートコードを記入した箇所に表示できます。
 
-```
-[shortcode-sample]
-```
+![ショートコード](images/2-2.png)
 
 囲む形のショードコードもあります。[shortcode-sample]ショートコードサンプル[/shortcode-sample] のように本文のテキストや画像などを囲んで、その囲んだものに対してなにかしらの加工をしたりできます。
 
@@ -21,25 +22,26 @@ WordPress のショートコードという機能を使ってプラグインを�
 [shortcode-sample]ショートコードサンプル[/shortcode-sample]
 ```
 
-##ショートコードの登録の仕方
+###ショートコードの登録の仕方
 
-ショートコードを登録するには、add_shortcode という関数を使います。  
-[関数リファレンス/add shortcode - WordPress Codex 日本語版](http://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/add_shortcode)  
+ショートコードを登録するには、add_shortcode というWP関数を使います。  
+
+:link:[関数リファレンス/add shortcode - WordPress Codex 日本語版](http://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/add_shortcode)  
   
 プラグインファイルへ add_shortcode( 'ショートコード名', '実行する関数名' ) と、ショートコード名・実行したい関数名を記述します。  
   
-前項で例にした、投稿した日にちを表示する関数 get_the_date() を実行したい場合は以下のように記述。
+前項で例にした、投稿した日にちを表示する関数 get_the_date() を実行したい場合は以下のように記述します。
 
 ```
 function shortcode_sample_func() {
-	return '<p>'.get_the_date().'</p>';
+    return '<p>ショートコードで投稿日を表示→'.get_the_date().'</p>';
 }
 add_shortcode( 'shortcode-sample', 'shortcode_sample_func' );
 ```
    
-※ショートコードで実行する関数には echo するような処理を入れてはいけません。echo はもちろんですが、the_date() など echo するような関数も使用してはダメです。意図した形で表示できなくなってしまいます。
+ショートコードで実行する関数には echo するような処理を入れてはいけません。echo はもちろんですが、the_date() など echo するような関数も使用してはダメです。意図した形で表示できなくなってしまいます。
 
-***
+:wavy_dash::wavy_dash::wavy_dash::wavy_dash::wavy_dash::wavy_dash:
 
 ショートコードの引数については今回のプラグインでは使わない機能なので説明は割愛します。  
 ショートコードを使ってまた違うことをしたい時のご参考までに…
@@ -86,13 +88,20 @@ var_dump( $content );
 ↓
 string(33) "ショートコードサンプル" 
 ```
+:wavy_dash::wavy_dash::wavy_dash::wavy_dash::wavy_dash::wavy_dash:  
 
-ここから本題…、
-##「この記事は○分で読めます」を表示するにはどのような処理が必要か？
+ここから本題…:muscle:
+##「この記事は○分で読めます」を表示するにはどのような処理が必要?？
 
-1. 本文のテキストの文字数を数えて何分で読めるのかを算出する     
-2. 計算した分数と定型文「この記事は○分で読めます」を合わせて表示する  
-3. ショートコード化する
+###1.本文のテキストの文字数を数えて何分で読めるのかを算出する  
+![ショートコード](images/2-3.png)
+    
+###2.計算した分数と定型文「この記事は○分で読めます」を合わせて表示する  
+![ショートコード](images/2-4.png)
+
+###3.ショートコード化する
+![ショートコード](images/2-5.png)
+
 
 ##テキストが何分で読めるかを計算する関数を作る
 
@@ -112,15 +121,15 @@ function count_reading_minutes( $content ) {
 
 この関数には計算したいテキストを $content で渡すことを想定しています。
 
-① 渡された文字列からHTMLタグを除去   
+1.渡された文字列からHTMLタグを除去   
   
 文字列には a タグなどの HTML が混ざっているので、PHP の strip_tags を使って HTML を取り除き純粋なテキストにします。
    
-② 文字列の数を計測  
+2.文字列の数を計測  
   
 純粋なテキストになったところで mb_strlen() 関数で文字数を数えます。
 
-③ 分数を計算  
+3.分数を計算  
   
 1分間で約400字が読めるとしてテキスト数を 400 で割った数を返すようにします。round()関数で小数点以下を四捨五入したものを返します。
 
@@ -134,7 +143,7 @@ var_dump( $minutes );
 ↓
 float(1)
 ```
-1分で読めるという計算結果！
+1分で読めるという計算結果:thumbsup:
 
 ##計算した分数と定型文「この記事は○分で読めます」を合わせて表示する関数を作る
 
@@ -157,27 +166,27 @@ function reading_minutes_shortcode( $attr, $content = '' ) {
 }
 ```
 
-① 投稿記事の情報を取得  
+1.投稿記事の情報を取得  
   
 get_post() 関数でその投稿記事のIDやタイトル、パーマリンクなど総合的な情報を取得します。
 
-② 投稿記事情報から本文をとりだす  
+2.投稿記事情報から本文をとりだす  
     
 総合的な記事情報から今回必要な本文部分を取り出します。
 
-③ 先につくった関数へ本文を渡す 
+3.先につくった関数へ本文を渡す 
    
 本文部分をテキストが何分で読めるかを計算する関数 count_reading_minutes() へ渡します。
 
-④ 定型文を作り分数を入れる  
+4.定型文を作り分数を入れる  
   
 PHP の sprintf() 関数を使って定型文と分数を合体させます。
 sprintf() の第一引数の %d と書いた部分に、第二引数で指定したものを整数として表示します。
 
-⑤「この記事は○分で読めます」を返す 
+5.「この記事は○分で読めます」を返す 
   
-前項④で作った「この記事は○分で読めます」を esc_html() 関数を使ってエスケープしデータを無害化して返します。  
-[データ検証 - WordPress Codex 日本語版](http://wpdocs.osdn.jp/%E3%83%87%E3%83%BC%E3%82%BF%E6%A4%9C%E8%A8%BC)
+4で作った「この記事は○分で読めます」のテキストを esc_html() 関数を使ってエスケープしデータを無害化して返します。  
+:link:[データ検証 - WordPress Codex 日本語版](http://wpdocs.osdn.jp/%E3%83%87%E3%83%BC%E3%82%BF%E6%A4%9C%E8%A8%BC)
    
    
 ##ショートコード化する
@@ -189,8 +198,10 @@ add_shortcode( 'reading-minutes', 'reading_minutes_shortcode' );
 ```
 
 これで['reading-minutes']というショートコードが完成！！  
-実際に投稿記事へ['reading-minutes']と記述してみましょう。  
+実際に投稿記事へ['reading-minutes']と記述してみましょう:smile:  
   
+:wavy_dash::wavy_dash::wavy_dash::wavy_dash::wavy_dash::wavy_dash:  
+ 
 [ Next >>：3.フィルターフックを使って「この記事は約○分で読めます。」を自動で表示してみよう](https://github.com/wckansai2016/plugin-hands-on/blob/master/plugin_hands_on_3.md)   
 [<< Back：1.プラグイン化のメリット / プラグインの原型をつくる](https://github.com/wckansai2016/plugin-hands-on/blob/master/plugin_hands_on_1.md)   
   
