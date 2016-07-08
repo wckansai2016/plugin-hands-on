@@ -34,7 +34,7 @@ function 行いたい処理の関数名(){
   
 ##フィルターフックで自動的に表示する機能を追加する
 
-まず、追加したい機能の関数を作ります。
+追加したい機能の関数を作ります。
 
 ```
 function add_reading_minutes_to_the_content( $content ) {
@@ -47,14 +47,18 @@ function add_reading_minutes_to_the_content( $content ) {
 ```
 
 表示する機能自体はショートコードで作った関数とほぼ同じです。  
-  
-引数にはフィルターフックで呼び出された時に本文の情報が渡されるので、それをショートコードを作った時の関数 count_reading_minutes() へ渡し何分で読めるかを算出します。  
+    
+![フィルターフック](images/3-1.png)  
+
+
+引数にはフィルターフックで呼び出された時に本文の情報が渡されるので、それをショートコードを作った時の関数 count_reading_minutes() へ渡し何分で読めるかを算出します。 
+ 
+ 
 それを定型文と合わせて表示するという仕組みです。  
 
 ショートコードの時とちがうのは、最後に処理された値を返す時に本文の情報も一緒に返すところです。
 ここで一緒に本文の情報を付けないと、本文が空になってしまいます。
 
-![フィルターフック](images/3-1.png)
 
 そして、この関数を add_filter() 関数を使って、記事本文をカスタマイズするための the_content フィルターフックと結びつけます。
 
@@ -64,6 +68,15 @@ add_filter( 'the_content', 'add_reading_minutes_to_the_content' );
 
 投稿の表示を確認してみましょう。自動的に記事が何分で読めるのかのテキストを表示できるようになっているはずです:smile:
 
+##オリジナルのフィルターフックを作ることもできます
+  
+プラグインやテーマを作る時に利用する人がカスタマイズを簡単にできるように、フィルターフックを作っておいてあげることもできます。  
+オリジナルのフィルターフックを作るには apply_filters() という WP関数で作成できます。
+
+ご興味がある方は apply_filters() の作成方法も確認してみて下さいね。
+
+:link: [関数リファレンス/apply filters \- WordPress Codex 日本語版](https://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/apply_filters)
+  
 
 [ Next >>：4.アクションフックを使って「この記事は約○分で読めます」にスタイルをあててみよう](https://github.com/wckansai2016/plugin-hands-on/blob/master/plugin_hands_on_4.md)   
 [<< Back：2.ショートコードを使って「この記事は○分で読めます」プラグインをつくる](https://github.com/wckansai2016/plugin-hands-on/blob/master/plugin_hands_on_2.md)   

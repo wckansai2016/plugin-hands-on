@@ -67,7 +67,6 @@ syntax error というのは構文が間違っていますよというメッセ�
  * @package Plugin-hans-on-sample
  */
 ```
-プラグイン名や作者名はお好きなように変更して下さい。  
 「Plugin Name」だけの記入でもOKです。    
 
 そして plugin-hans-on-sample フォルダを WordPress の wp-content → plugins フォルダにおきます。  
