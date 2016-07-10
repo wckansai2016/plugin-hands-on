@@ -112,7 +112,8 @@ add_shortcode( 'reading-minutes', 'reading_minutes_shortcode' );
 ```
 shortcode_atts についてはこちら：[関数リファレンス/shortcode atts \- WordPress Codex 日本語版](http://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/shortcode_atts)
 
-各表示したいショートコードは以下のようになります。  
+各ショートコードは以下のようになります。  
+表示したい時間単位のショートコードを投稿記事に記入してみましょう！
 
 ```
 時間で表示
