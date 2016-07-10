@@ -40,74 +40,8 @@ function shortcode_sample_func() {
 add_shortcode( 'shortcode-sample', 'shortcode_sample_func' );
 ```
    
-ショートコードで実行する関数には echo するような処理を入れてはいけません。echo はもちろんですが、the_date() など echo するような関数も使用してはダメです。意図した形で表示できなくなってしまいます。
+注意点：ショートコードで実行する関数には echo するような処理を入れてはいけません。echo はもちろんですが、the_date() など echo するような関数も使用してはダメです。意図した形で表示できなくなってしまいます。
 
-:wavy_dash::wavy_dash::wavy_dash::wavy_dash::wavy_dash::wavy_dash:
-
-ショートコードの引数については今回のプラグインでは使わない機能なので説明は割愛します。  
-ショートコードを使ってまた違うことをしたい時のご参考までに…
-
-###![](images/title.png)ショートコードの引数について
-
-実行する関数に引数を渡して処理することも可能です。  
-任意の引数を渡すにはショートコードを記入する際に以下のように記入します。
-
-```
-[shortcode_sample example="value"]
-```
-
-ショートコードに = で記入された値は、関数側の第一引数で連想配列で取得できます。
-受け取ると、= 前の文字列が配列のキーに、= の後の文字列が値として配列に入っています。  
-
-```
-function 呼び出す関数名( $attr ) {
-
-	var_dump( $attr );
-	↓
-	array(1) { 
- 		["example"]=> string(5) "value" 
-	}
-	
-    return ;
-}
-add_shortcode( 'shortcode-sample', 'shortcode_sample_func' );
-
-```
-
-使い方の例として…、
-
-日付のフォーマットを format="Y.m.d" と指定して渡すと、  
-
-```
-[shortcode-sample format="Y.m.d"]
-```
-
-実行する関数側の第一引数で format="Y.m.d" を配列で受け取ることができます。　　
-以下のように投稿した日にちを表示する関数 get_the_date() の引数に受け取った値を当てはめるようにすると、  
-投稿日付のフォーマットを指定できるようになります。
-
-```
-function shortcode_sample_func( $attr ) {
-     return '<p>ショートコードで投稿日を表示→'.get_the_date( $attr["format"] ).'</p>';
-}
-add_shortcode( 'shortcode-sample', 'shortcode_sample_func' );
-```
-↓  
-![投稿日付のフォーマットを指定](images/s-1.png)
-
-ショートコードの第二引数では、ショートコードで囲んだ部分のコンテンツを取得できます。
-
-```
-[shortcode-sample]ショートコードサンプル[/shortcode-sample]
-```
-↓  
-
-```
-var_dump( $content );
-↓
-string(33) "ショートコードサンプル" 
-```
-:wavy_dash::wavy_dash::wavy_dash::wavy_dash::wavy_dash::wavy_dash:  
 
 ここから本題…:muscle:  
 「この記事は○分で読めます」を表示する機能を作ってショートコード化していきます。

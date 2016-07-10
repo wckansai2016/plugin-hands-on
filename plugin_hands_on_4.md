@@ -62,5 +62,5 @@ add_action( 'wp_enqueue_scripts', 'add_reading_minutes_styles' );
 
 :wavy_dash::wavy_dash::wavy_dash::wavy_dash::wavy_dash::wavy_dash:  
   
-
+[ Next >>：(追加) 5.ショートコードに引数を渡して表示する時間の単位を変えてみよう ](https://github.com/wckansai2016/plugin-hands-on/blob/master/plugin_hands_on_5.md)   
 [<< Back：3.フィルターフックを使って「この記事は約○分で読めます。」を自動で表示してみよう](https://github.com/wckansai2016/plugin-hands-on/blob/master/plugin_hands_on_3.md) 
