@@ -19,20 +19,20 @@ WordCamp Kansai 2016 のプラグイン作成ハンズオンの資料です。
 ### ![](images/title.png)目次
 
 1. [プラグイン化のメリット / プラグインの原型をつくる](https://github.com/wckansai2016/plugin-hands-on/blob/master/plugin_hands_on_1.md)
-+  [ショートコードを使って「この記事は○分で読めます」プラグインをつくる](https://github.com/wckansai2016/plugin-hands-on/blob/master/plugin_hands_on_2.md)
+2.  [ショートコードを使って「この記事は○分で読めます」プラグインをつくる](https://github.com/wckansai2016/plugin-hands-on/blob/master/plugin_hands_on_2.md)
     + ショートコードについて知ろう
     + 「この記事は○分で読めます」を表示するにはどのような処理が必要?？
     + 計算した分数と定型文「この記事は○分で読めます」を合わせて表示する関数を作る
     + ショートコード化する 
-+ [フィルターフックを使って「この記事は約○分で読めます。」を自動で表示してみよう](https://github.com/wckansai2016/plugin-hands-on/blob/master/plugin_hands_on_3.md)
+3. [フィルターフックを使って「この記事は約○分で読めます。」を自動で表示してみよう](https://github.com/wckansai2016/plugin-hands-on/blob/master/plugin_hands_on_3.md)
     + フィルターフックとは
     + フィルターフックの使い方
     + フィルターフックで自動的に表示する機能を追加する
-+ [アクションフックを使って「この記事は約○分で読めます」にスタイルをあててみよう](https://github.com/wckansai2016/plugin-hands-on/blob/master/plugin_hands_on_4.md)
+4. [アクションフックを使って「この記事は約○分で読めます」にスタイルをあててみよう](https://github.com/wckansai2016/plugin-hands-on/blob/master/plugin_hands_on_4.md)
     + アクションフックとは
     + アクションフックの使い方
     + 「この記事は約○分で読めます」にあてるスタイルシートをアクションフックで読み込む
-+ [（当日追加分）ショートコードに引数を渡して表示する時間の単位を変えてみよう](https://github.com/wckansai2016/plugin-hands-on/blob/master/plugin_hands_on_5.md)
+5. [（当日追加分）ショートコードに引数を渡して表示する時間の単位を変えてみよう](https://github.com/wckansai2016/plugin-hands-on/blob/master/plugin_hands_on_5.md)
     + ショートコードの引数について
     + 表示する時間の単位を引数で指定できるようにする
 
