@@ -48,13 +48,13 @@ add_shortcode( 'shortcode-sample', 'shortcode_sample_func' );
 
 ## 「この記事は○分で読めます」を表示するにはどのような処理が必要?？
 
-###![](images/title.png)1.本文のテキストの文字数を数えて何分で読めるのかを算出する  
+### ![](images/title.png)1.本文のテキストの文字数を数えて何分で読めるのかを算出する  
 ![ショートコード](images/2-3.png)
     
-###![](images/title.png)2.計算した分数と定型文「この記事は○分で読めます」を合わせて表示する  
+### ![](images/title.png)2.計算した分数と定型文「この記事は○分で読めます」を合わせて表示する  
 ![ショートコード](images/2-4.png)
 
-###![](images/title.png)3.ショートコード化する
+### ![](images/title.png)3.ショートコード化する
 ![ショートコード](images/2-5.png)
 
 
